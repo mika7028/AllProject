@@ -4,7 +4,7 @@ import java.awt.Container;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 class SSample3_1 extends JFrame{
   public static void main(String args[]){
@@ -19,25 +19,22 @@ class SSample3_1 extends JFrame{
 
     JPanel p = new JPanel();
 
-    JTextField text1 = new JTextField("東京都", 20);
+    JTextArea area1 = new JTextArea("東京都港区赤坂", 3, 20);
+    JTextArea area2 = new JTextArea("東京都港区赤坂", 3, 20);
+    
+    //文字色の設定
+    area2.setForeground(Color.RED);
+    
+    //背景色の設定
+    area2.setBackground(Color.BLACK);
+    JTextArea area3 = new JTextArea("東京都港区赤坂", 3, 20);
+    
+    //true,falsで非透明、透明の設定
+    area3.setOpaque(false);
 
-    JTextField text2 = new JTextField("東京都", 20);
-    
-    //文字色変更
-    text2.setForeground(Color.BLUE);
-    
-    //背景色変更
-    text2.setBackground(Color.BLACK);
-    
-    JTextField text3 = new JTextField("大阪府", 20);
-    
-    //true,falseで非透明、透明の切り替え
-    text3.setOpaque(false);
-    text3.setBackground(Color.BLACK);
-
-    p.add(text1);
-    p.add(text2);
-    p.add(text3);
+    p.add(area1);
+    p.add(area2);
+    p.add(area3);
 
     Container contentPane = getContentPane();
     contentPane.add(p, BorderLayout.CENTER);

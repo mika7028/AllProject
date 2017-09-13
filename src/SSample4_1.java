@@ -1,10 +1,9 @@
 import java.awt.BorderLayout;
 import java.awt.Container;
-import java.awt.Font;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 class SSample4_1 extends JFrame{
   public static void main(String args[]){
@@ -19,18 +18,20 @@ class SSample4_1 extends JFrame{
 
     JPanel p = new JPanel();
 
-    JTextField text1 = new JTextField("東京都千代田区");
+    JTextArea area1 = new JTextArea(3, 10);
+    JTextArea area2 = new JTextArea(3, 10);
     
-    //フォントの設定
-    JTextField text2 = new JTextField("東京都千代田区");
-    text2.setFont(new Font("ＭＳ ゴシック", Font.PLAIN, 8));
+    //設定した幅を超えると自動で改行
+    area2.setLineWrap(true);
+    JTextArea area3 = new JTextArea(3, 10);
+    area3.setLineWrap(true);
+    
+    //改行を単語(半角文字のみ)ごとで行う
+    area3.setWrapStyleWord(true);
 
-    JTextField text3 = new JTextField("東京都千代田区");
-    text3.setFont(new Font("ＭＳ ゴシック", Font.PLAIN, 30));
-
-    p.add(text1);
-    p.add(text2);
-    p.add(text3);
+    p.add(area1);
+    p.add(area2);
+    p.add(area3);
 
     Container contentPane = getContentPane();
     contentPane.add(p, BorderLayout.CENTER);

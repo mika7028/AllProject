@@ -3,7 +3,7 @@ import java.awt.Container;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 class SSample2_1 extends JFrame{
   public static void main(String args[]){
@@ -17,16 +17,20 @@ class SSample2_1 extends JFrame{
     setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 
     JPanel p = new JPanel();
+    
+    //()に文字を入れる事で初期値の設定
+    JTextArea area1 = new JTextArea("東京都港区赤坂");
+    
+    //\nで改行
+    JTextArea area2 = new JTextArea("こんにちは. ¥n お元気でしょうか。", 5, 20);
+    JTextArea area3 = new JTextArea(3, 5);
+    
+    //メソッドを使った初期値設定
+    area3.setText("長い文章を設定すると自動的に拡張されます。");
 
-    //初期値の設定
-    JTextField text1 = new JTextField("東京都");
-    JTextField text2 = new JTextField("東京都", 10);
-    JTextField text3 = new JTextField(15);
-    text3.setText("住所を入力して下さい");
-
-    p.add(text1);
-    p.add(text2);
-    p.add(text3);
+    p.add(area1);
+    p.add(area2);
+    p.add(area3);
 
     Container contentPane = getContentPane();
     contentPane.add(p, BorderLayout.CENTER);

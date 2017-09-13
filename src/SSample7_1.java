@@ -1,9 +1,10 @@
 import java.awt.BorderLayout;
 import java.awt.Container;
+import java.awt.Dimension;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
 class SSample7_1 extends JFrame{
   public static void main(String args[]){
@@ -18,24 +19,20 @@ class SSample7_1 extends JFrame{
 
     JPanel p = new JPanel();
 
-    JTextField text1 = new JTextField("東京都千代田区神田", 20);
+    JTextArea area1 = new JTextArea();
     
-    //文字列の位置を左に
-    text1.setHorizontalAlignment(JTextField.LEFT);
+    //ピクセル単位でサイズを設定
+    //この場合だと拡張がされない
+    area1.setPreferredSize(new Dimension(180, 27));
+    JTextArea area2 = new JTextArea(5, 24);
+    area2.setPreferredSize(new Dimension(180, 27));
+    JTextArea area3 = new JTextArea(5, 24);
+    area3.setPreferredSize(new Dimension(180, 27));
+    area3.setLineWrap(true);
 
-    JTextField text2 = new JTextField("東京都千代田区神田", 20);
-    
-    //文字列の位置を中央に
-    text2.setHorizontalAlignment(JTextField.CENTER);
-
-    JTextField text3 = new JTextField("東京都千代田区神田", 20);
-    
-    //文字列の位置を右に
-    text3.setHorizontalAlignment(JTextField.RIGHT);
-
-    p.add(text1);
-    p.add(text2);
-    p.add(text3);
+    p.add(area1);
+    p.add(area2);
+    p.add(area3);
 
     Container contentPane = getContentPane();
     contentPane.add(p, BorderLayout.CENTER);

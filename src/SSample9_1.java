@@ -1,20 +1,12 @@
 import java.awt.BorderLayout;
+import java.awt.Color;
 import java.awt.Container;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
 
-import javax.swing.JButton;
 import javax.swing.JFrame;
-import javax.swing.JLabel;
 import javax.swing.JPanel;
-import javax.swing.JTextField;
+import javax.swing.JTextArea;
 
-class SSample9_1 extends JFrame implements ActionListener{
-
-  JTextField text1;
-  JTextField text2;
-  JLabel label;
-
+class SSample9_1 extends JFrame{
   public static void main(String args[]){
     SSample9_1 frame = new SSample9_1("タイトル");
     frame.setVisible(true);
@@ -27,24 +19,21 @@ class SSample9_1 extends JFrame implements ActionListener{
 
     JPanel p = new JPanel();
 
-    text1 = new JTextField("住所1", 20);
-    text2 = new JTextField("住所2", 20);
-    JButton button = new JButton("取得");
-    //text1,text2の文字を取得
-    button.addActionListener(this);
-    label = new JLabel();
+    JTextArea area1 = new JTextArea("性別：男性¥n年齢：25歳", 4, 10);
+   
+    //キュレットの場所を指定
+    area1.setCaretPosition(6);
+
+    JTextArea area2 = new JTextArea("性別：男性¥n年齢：25歳", 4, 10);
+    area2.setCaretPosition(area2.getText().length());
     
-    
-    p.add(text1);
-    p.add(text2);
-    p.add(button);
+    //キュレットの色を設定
+    area2.setCaretColor(Color.RED);
+
+    p.add(area1);
+    p.add(area2);
 
     Container contentPane = getContentPane();
     contentPane.add(p, BorderLayout.CENTER);
-    contentPane.add(label, BorderLayout.SOUTH);
-  }
-
-  public void actionPerformed(ActionEvent e){
-    label.setText(text1.getText() + text2.getText());
   }
 }
